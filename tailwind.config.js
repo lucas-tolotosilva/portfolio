@@ -16,14 +16,15 @@ export default {
       },
       colors: {
         black: {
-          900: '#090909',
+          900: '#1D1D1D',
         }, 
-        pink: {
-          50: 'rgba(255, 14, 209, 0.25)',
-          500: '#ff0ed1',
-          600: '#C60CA2',
-          800: '#610950'
+        purple: {
+          50: 'rgba(153, 51, 153, 0.2)',
+          100: '#993399'
           
+        },
+        blue: {
+          100: '#327199',
         },
         black: {
           900: '#222222',
@@ -42,7 +43,6 @@ export default {
           100: '#ffffff',
           150: '#fafafa',
           200: 'rgba(250, 250, 250, 0.5)'
-          
         } 
       },
       screens: {
@@ -59,13 +59,7 @@ export default {
         videoDesktop: "url('/videobg.mp4')",
         videoMobile:  "url('/videobg-mobile.mp4')",
         //'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-radial': 'radial-gradient(circle, rgba(255,14,209,0.6) 5%, rgba(255,14,209,0.05)52%, rgba(250, 250, 250, 0.5) 90%)',
-        'gradient-radial2': 'radial-gradient(circle, rgba(255,14,209,0.1) 5%, rgba(255,14,209,0.05)52%, rgba(250, 250, 250, 0.5) 90%)',
-        'gradient-radial-blue': 'radial-gradient(circle, rgba(0,56,104,0.5) 5%, rgba(45,91,130,0.05) 52%, rgba(250,250,250,0) 100%)',
-        'gradient-radial-blue2': 'radial-gradient(circle, rgba(0,56,104,0.1) 5%, rgba(45,91,130,0.05) 52%, rgba(250,250,250,0.5) 90%)',
-        'gradient-radial-blue-mini': 'radial-gradient(circle, rgba(0,56,104,0.1) 5%, rgba(45,91,130,0.05) 52%, rgba(250,250,250, 0.008) 70%)',
-        'white-gradient': 'linear-gradient(138deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15449929971988796) 64%, rgba(250,250,250,1) 100%)',
-        'black-gradient': 'linear-gradient(138deg, #222222 50%, #363636 90%, #4F4F4F 100% )',
+        'radial-blue': 'radial-gradient(circle, rgba(50,113,153,0.6026785714285714) 0%, rgba(50,113,153,0) 53%)',
        },
       animation: {
         'slow-anim1': 'myAnim 15s ease-in-out infinite',

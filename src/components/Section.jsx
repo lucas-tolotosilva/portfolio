@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import '../App.css';
 
-function Section({ id, title, content }) {
+function Section({ id, title, content, onVisible }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
+
+  useEffect(() => {
+    if (inView) {
+      onVisible(); // Chama a função quando a seção entra em vista
+    }
+  }, [inView, onVisible]);
 
   return (
     <section ref={ref} id={id} className={`section ${inView ? 'fade-in' : ''}`}>
