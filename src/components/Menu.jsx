@@ -12,11 +12,18 @@ function Menu({ sections, activeSection }) {
                 ${activeSection === section.id ? 'active' : ''} 
                 cursor-none`}
             >
-              {section.title}
+              {/* Dividindo o título em letras e colocando cada letra em um span */}
+              {section.title.split('').map((char, i) => (
+                <span key={i} className="letter-span">
+                  {char}
+                </span>
+              ))}
             </a>
           </li>
         ))}
       </ul>
+      {/* Linha que cresce ao lado */}
+      <div className="active-line"></div>
     </nav>
   );
 }

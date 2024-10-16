@@ -73,12 +73,16 @@ body, html {
 .section {
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
-  padding-left: 20rem;
+  /* padding-left: 20rem; */
   min-height: 100vh;  /* Garante que cada seção ocupe a tela toda */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: left;
+}
+
+.section-inside{
+  padding-left: 20rem;
 }
 
 .section.fade-in {
@@ -95,23 +99,132 @@ body, html {
 
 /* Estilos existentes aqui... */
 
+/* Estilo normal do item do menu */
 nav a {
-  position: relative; /* Necessário para o pseudo-elemento */
-  color: white; /* Cor do texto */
-  text-decoration: none; /* Remove o sublinhado */
-  transition: all 0.3s ease; /* Transição suave para todos os estilos */
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 16px; /* Tamanho base do texto */
+  display: inline-block;
 }
 
-nav a:hover {
-  color: rgba(0, 255, 255, 0.7); /* Cor do texto ao passar o mouse */
+nav a .letter-span {
+  display: inline-block;
+  transition: transform 0.3s ease; /* Transição suave para o efeito */
+}
+
+/* Aumenta cada letra ao passar o mouse */
+nav a:hover .letter-span {
+  transform: scale(1.3); /* Aumenta cada letra */
+  transition-delay: calc(var(--index) * 50ms); /* Adiciona um pequeno atraso a cada letra */
 }
 
 /* Estilo para a seção ativa */
 .active {
-  transform: translateX(-10px) scale(1.1); /* Move para a esquerda e aumenta */
-  color: #00ff00; /* Cor do texto do item ativo */
+  transform: translateX(-10px) scale(1.5); /* Move para a esquerda e aumenta */
+  color: #993399; /* Cor do texto do item ativo */
+  letter-spacing: .2rem;
   text-shadow: 0 0 10px rgba(128, 0, 255, 0.7); /* Sombra roxa */
 }
+
+
+/* Ajuste do container da timeline */
+.compact-timeline-container {
+  position: relative;
+  padding: 0; /* Removendo o padding */
+  width: calc(100% - 40rem); /* Espaçamento de 20rem em ambos os lados */
+  height: 150px;
+  display: flex;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 2rem; /* Mantém as caixas na parte inferior da tela */
+  left: 20rem;  /* 20rem da esquerda */
+  justify-content: space-between;
+}
+
+/* Linha central atrás das caixas, com animação de crescimento */
+.compact-timeline-line {
+  position: absolute; /* Centraliza a linha com as caixas */
+  height: 2px;
+  background-color: #007bff;
+  top: 50%; /* Centraliza verticalmente em relação às caixas */
+  left: 0; /* A linha começa no canto esquerdo da tela */
+  transform: translateY(-50%);
+  width: 0;
+  z-index: 0;
+  animation: growLine 2s forwards ease-out; /* Cresce da esquerda para a direita */
+}
+
+/* Animação de crescimento da linha da esquerda para a direita */
+@keyframes growLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Itens da linha do tempo */
+.compact-timeline-item {
+  position: relative;
+  z-index: 1; /* Fica acima da linha */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px; /* Largura mínima das caixas */
+  backdrop-filter: blur(5px); /* Efeito de blur nas caixas */
+  padding: 0.5rem; /* Diminuindo o padding */
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1); /* Fundo transparente com blur */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil nas caixas */
+}
+
+/* Torna as caixas visíveis */
+.compact-timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Linha que conecta a data ao item */
+.compact-timeline-arrow {
+  position: relative;
+  width: 2px;
+  height: 20px; /* Diminuindo a altura da linha que conecta */
+  margin-bottom: 0.5rem; /* Ajustando o espaçamento entre a linha de conexão e a caixa */
+}
+
+/* Conteúdo dos itens */
+.compact-timeline-content {
+  text-align: center;
+}
+
+/* Animação de aparição */
+.compact-timeline-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.compact-timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
