@@ -4,7 +4,7 @@ import Menu from './components/Menu';
 import Section from './components/Section';
 import ReactTypingEffect from 'react-typing-effect';
 import './App.css';
-import BackgroundEffect from './components/BackgroundEffect';
+import Skills from './components/Skills';
 
 const sections = [
   {
@@ -43,11 +43,7 @@ const sections = [
     id: 'skills',
     title: 'Skills',
     content: (
-      <ul>
-        <li><strong>Languages:</strong> HTML, CSS, JavaScript, Python, PHP</li>
-        <li><strong>Frameworks:</strong> React, Angular, Django, Laravel</li>
-        <li><strong>Tools & Technologies:</strong> Git, Docker, AWS</li>
-      </ul>
+      <Skills />
     ),
   },
   {
@@ -80,7 +76,7 @@ function App() {
 
   return (
     <div className="">
-      <BackgroundEffect/>
+      
       <CustomCursor />
       <div className="flex-grow">
         {sections.map((section) => (

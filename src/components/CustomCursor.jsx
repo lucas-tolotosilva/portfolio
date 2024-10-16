@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css'; // Certifique-se de ter este arquivo CSS
 
-const colors = ['red', 'blue', 'green', 'yellow', 'purple'];
+const colors = ['#327199', '#993399'];
 
 const CustomCursor = () => {
   const [colorIndex, setColorIndex] = useState(0);

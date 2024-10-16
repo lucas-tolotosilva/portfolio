@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Timeline from './Timeline';  // Importando a linha do tempo
+import BackgroundEffect from './BackgroundEffect';
 
 function Section({ id, title, content, onVisible }) {
   const { ref, inView } = useInView({
@@ -16,6 +17,7 @@ function Section({ id, title, content, onVisible }) {
 
   return (
     <section ref={ref} id={id} className={`section ${inView ? 'fade-in' : ''}`}>
+      <BackgroundEffect />
       <div className='section-inside'>
         <h2 className="text-3xl font-bold mb-4">{title}</h2>
         <div>{content}</div>

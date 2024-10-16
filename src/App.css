@@ -214,6 +214,10 @@ nav a:hover .letter-span {
 }
 
 
+/* Skills */
+.container-skills{
+  width: calc(100% - 40rem);
+}
 
 
 

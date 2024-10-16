@@ -30,6 +30,9 @@ export default {
         yellow: {
           700: '#f39c12',
         },
+        transparent: {
+          100: 'rgba(255, 255, 255, 0.01)'
+        },
         gray: {
           200: '#ececec',
           400: '#C0C0C0',
@@ -58,7 +61,9 @@ export default {
         videoDesktop: "url('/videobg.mp4')",
         videoMobile:  "url('/videobg-mobile.mp4')",
         //'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'radial-blue': 'radial-gradient(circle, rgba(50,113,153,0.6026785714285714) 0%, rgba(50,113,153,0) 53%)',
+        'radial-blue': 'radial-gradient(circle, rgba(50,113,153,0.9) 0%, rgba(50,113,153,0.1) 49%, rgba(50,113,153,0) 79%)',
+        'radial-purple': 'radial-gradient(circle, rgba(153,51,153,0.48) 0%, rgba(50,113,153,0.06486344537815125) 49%, rgba(50,113,153,0) 79%)',
+        
        },
       animation: {
         'slow-anim1': 'myAnim 15s ease-in-out infinite',
@@ -70,8 +75,8 @@ export default {
       },
       
       boxShadow: {
-        '3xl': '0 0 21px rgba(0, 0, 0, 0.15 )',
-        '4xl': '0px 0px 78px -7px rgba(0,0,0,0.1)'
+        'box': 'box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2)',
+        
       },
       blur: {
         'tt': '2px',
