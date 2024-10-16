@@ -16,6 +16,7 @@ export default {
       },
       colors: {
         black: {
+          100: 'rgba(0, 0, 0, 0.56)',
           900: '#1D1D1D',
         }, 
         purple: {
@@ -31,10 +32,11 @@ export default {
           700: '#f39c12',
         },
         transparent: {
-          100: 'rgba(255, 255, 255, 0.01)'
+          100: 'rgba(255, 255, 255, 0.01)',
+          200: 'rgba(255, 255, 255, 0.09)'
         },
         gray: {
-          200: '#ececec',
+          200: '#BBBBBB',
           400: '#C0C0C0',
           800: '#696969'
         },

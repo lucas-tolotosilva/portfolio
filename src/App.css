@@ -219,6 +219,11 @@ nav a:hover .letter-span {
   width: calc(100% - 40rem);
 }
 
+/* Projects */
+.container-projects{
+  width: calc(100% - 40rem);
+}
+
 
 
 

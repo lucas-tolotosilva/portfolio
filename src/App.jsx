@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CustomCursor from './components/CustomCursor';
 import Menu from './components/Menu';
 import Section from './components/Section';
 import ReactTypingEffect from 'react-typing-effect';
 import './App.css';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 const sections = [
   {
@@ -50,33 +52,41 @@ const sections = [
     id: 'projects',
     title: 'Projects',
     content: (
-      <div>
-        <h3>E-commerce Website</h3>
-        <p>Developed a fully functional e-commerce website using React and Node.js...</p>
-        <h3>Personal Blog</h3>
-        <p>Created a personal blog platform with Django, featuring user authentication...</p>
-      </div>
+      <Projects />
     ),
   },
   {
     id: 'contact',
     title: 'Contact',
     content: (
-      <div>
-        <p>Email: lucas@example.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/lucas">linkedin.com/in/lucas</a></p>
-        <p>GitHub: <a href="https://www.github.com/lucas">github.com/lucas</a></p>
-      </div>
+      <Contact />
     ),
   },
 ];
 
 function App() {
-  const [activeSection, setActiveSection] = useState(sections[0].id); // Inicializa com a primeira seção
+  const [activeSection, setActiveSection] = useState(sections[0].id);
+
+  const handleScroll = () => {
+    const sectionElements = sections.map(section => document.getElementById(section.id));
+
+    sectionElements.forEach(section => {
+      const { top } = section.getBoundingClientRect();
+      if (top <= window.innerHeight / 2 && top >= -window.innerHeight / 2) {
+        setActiveSection(section.id);
+      }
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="">
-      
       <CustomCursor />
       <div className="flex-grow">
         {sections.map((section) => (
@@ -84,13 +94,17 @@ function App() {
             key={section.id}
             id={section.id}
             content={section.content}
-            onVisible={() => setActiveSection(section.id)} // Atualiza a seção ativa
+            onVisible={() => setActiveSection(section.id)}
           />
         ))}
       </div>
-      <Menu sections={sections} activeSection={activeSection} /> {/* Passa a seção ativa */}
+      <Menu
+        sections={sections}
+        activeSection={activeSection}
+        onSectionClick={setActiveSection}
+      />
     </div>
   );
 }
 
-export default App;
+export default App

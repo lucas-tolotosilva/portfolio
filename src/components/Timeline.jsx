@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import '../App.css';
 
 const timelineData = [
-  { date: '2020', title: 'Curso Técnico em Informática ', description: 'Etec de Botucatu.' },
-  { date: '2021', title: 'Faculdade - Análise e Desenvolvimento de Sistemas', description: 'Fatec de Botucatu.' },
-  { date: '2024', title: 'Próximo Capítulo', description: 'Construindo...' }
+  { date: '2020', title: 'Technical in Computer Course with a focus on Software Development', description: 'Etec Botucatu.' },
+  { date: '2021', title: 'Technologist in Systems Analysis and Development', description: 'Fatec Botucatu.' },
+  { date: '2024', title: 'Next chapter', description: 'Loading...' }
 ];
 
 const Timeline = () => {

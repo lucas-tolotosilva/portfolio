@@ -1,31 +1,30 @@
 import React from 'react';
 
-function Menu({ sections, activeSection }) {
+function Menu({ sections, activeSection, onSectionClick }) {
   return (
     <nav className="fixed right-0 top-0 h-screen flex flex-col justify-center space-y-4 mr-80">
       <ul className="space-y-4">
         {sections.map((section) => (
-          <li key={section.id}>
+          <li key={section.id} className={`transition-all duration-300 `}>
             <a
               href={`#${section.id}`}
-              className={`block p-4 transition-all duration-300
-                ${activeSection === section.id ? 'active' : ''} 
-                cursor-none`}
+              onClick={(e) => {
+                e.preventDefault(); // Evitar comportamento padrão
+                onSectionClick(section.id); // Chama a função ao clicar
+                document.getElementById(section.id).scrollIntoView({ behavior: 'smooth' }); // Scroll suave
+              }}
+              className={`block p-4 transition-all duration-300 cursor-none hover:scale-105 `}
             >
-              {/* Dividindo o título em letras e colocando cada letra em um span */}
-              {section.title.split('').map((char, i) => (
-                <span key={i} className="letter-span">
-                  {char}
-                </span>
-              ))}
+              {section.title}
             </a>
           </li>
         ))}
       </ul>
-      {/* Linha que cresce ao lado */}
       <div className="active-line"></div>
     </nav>
   );
 }
 
 export default Menu;
+// ${activeSection === section.id ? 'text-blue-500 font-bold' : ''}
+// ${activeSection === section.id ? 'translate-x-[-10px]' : ''}
